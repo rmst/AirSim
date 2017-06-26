@@ -174,6 +174,11 @@ RCData RpcLibClient::getRCData()
     return pimpl_->client.call("getRCData").as<RpcLibAdapators::RCData>().to();
 }
 
+CollisionInfo RpcLibClient::getCollisionInfo()
+{
+    return pimpl_->client.call("getCollisionInfo").as<RpcLibAdapators::CollisionInfo>().to();
+}
+
 TTimePoint RpcLibClient::timestampNow()
 {
     return pimpl_->client.call("timestampNow").as<TTimePoint>();

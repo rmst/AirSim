@@ -155,11 +155,29 @@ struct GeoPoint {
 
 struct CollisionInfo {
     bool has_collided = false;
-    int collison_count = 0;
     Vector3r normal = Vector3r::Zero();
     Vector3r impact_point = Vector3r::Zero();
     Vector3r position = Vector3r::Zero();
     real_T penetration_depth = 0;
+    TTimePoint time_stamp = 0;
+
+    CollisionInfo()
+    {}
+
+    CollisionInfo(bool has_collided_val, const Vector3r& normal_val, 
+        const Vector3r& impact_point_val, const Vector3r& position_val, 
+        real_T penetration_depth_val, TTimePoint time_stamp_val)
+        : has_collided(has_collided_val), normal(normal_val),
+        impact_point(impact_point_val), position(position_val),
+        penetration_depth(penetration_depth_val), time_stamp(time_stamp_val)
+    {
+    }
+};
+
+struct CollisonResponseInfo {
+    unsigned int collison_count_raw = 0;
+    unsigned int collison_count_non_resting = 0;
+    TTimePoint collision_time_stamp = 0;
 };
 
 struct GeoPose {

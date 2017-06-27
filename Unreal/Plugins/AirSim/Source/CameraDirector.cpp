@@ -42,9 +42,9 @@ void ACameraDirector::initializeForBeginPlay()
     initial_ground_obs_offset_ = camera_start_location_ - TargetPawn->GetActorLocation();
 
     //set initial view mode
-    setMode(ECameraDirectorMode::CAMERA_DIRECTOR_MODE_FLY_WITH_ME);
-    this->getCamera()->setToPIPView();
-    ExternalCamera->setToMainView();
+    setMode(ECameraDirectorMode::CAMERA_DIRECTOR_MODE_FPV);
+    ExternalCamera->setToPIPView();
+    getCamera()->setToMainView();
     ext_obs_fixed_z_ = false;
 }
 

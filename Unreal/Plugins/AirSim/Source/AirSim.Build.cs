@@ -3,6 +3,7 @@
 
 using UnrealBuildTool;
 using System.IO;
+using System;
 
 public class AirSim : ModuleRules
 {
@@ -118,6 +119,9 @@ public class AirSim : ModuleRules
 
             PublicAdditionalLibraries.Add(Path.Combine(LibPath, PlatformString, ConfigurationString, LibFileName + ".lib"));
         } else if (Target.Platform == UnrealTargetPlatform.Linux || Target.Platform == UnrealTargetPlatform.Mac) {
+
+            isLibrarySupported = true;
+
             PublicAdditionalLibraries.Add(Path.Combine(LibPath, "lib" + LibFileName + ".a"));
         }
 
